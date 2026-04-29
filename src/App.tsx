@@ -32,6 +32,18 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const projects = [
   {
+    slug: 'luxe-table',
+    title: 'Luxe Table - Sri Restaurant',
+    category: 'Food & Beverage',
+    desc: 'A premium restaurant website for Sri Restaurant, featuring a modern UI, dynamic menu, and reservation system for authentic Indian and Arabian cuisine.',
+    tags: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
+    image: '/assets/luxe-table.png',
+    github: 'https://github.com/RaparthiSrikar/sri_restaurant.git',
+    live: 'https://sri-restaurant.vercel.app/',
+    longDesc: 'Luxe Table is a sophisticated web platform designed for Sri Restaurant to showcase their culinary excellence. The project focuses on high-end aesthetics, featuring smooth animations with Framer Motion, a responsive layout with Tailwind CSS, and a comprehensive menu system. It provides customers with an immersive digital dining experience, from exploring the authentic flavors of Hyderabad to making table reservations.',
+    features: ['Dynamic Menu with 100+ items', 'Integrated Table Reservation system', 'High-performance image optimization', 'Smooth parallax and reveal animations']
+  },
+  {
     slug: 'vedant-high-school',
     title: 'Vedant High School',
     category: 'Education Platform',
@@ -191,14 +203,12 @@ const Navbar = () => {
               </Link>
             )
           ))}
-          <a 
-            href="/assets/resume.jpg" 
-            target="_blank" 
-            rel="noopener noreferrer"
+          <Link 
+            to="/resume"
             className="bg-white/5 border border-white/10 hover:bg-white/10 text-white px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105"
           >
             Resume
-          </a>
+          </Link>
           <a href="#contact" className="bg-brand hover:bg-brand/90 text-white px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105">
             Hire Me
           </a>
@@ -254,7 +264,7 @@ const Navbar = () => {
 
 const TrustedBy = () => {
   const companies = [
-    'Vedhant School', 'Sravanthi School', 'Heema Services', 'Srujana Dental'
+    'Vedhant School', 'Sravanthi School', 'Heema Services', 'Srujana Dental', 'Sri Restaurant'
   ];
 
   return (
@@ -412,14 +422,12 @@ const Hero = () => {
               <a href="#contact" className="w-full sm:w-auto bg-brand hover:bg-brand/90 text-white px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-brand/30 hover:-translate-y-1">
                 Hire Me <ChevronRight size={20} />
               </a>
-              <a 
-                href="/assets/resume.jpg" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Link 
+                to="/resume"
                 className="w-full sm:w-auto border border-white/10 hover:bg-white/5 text-white px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 transition-all hover:-translate-y-1"
               >
                 Resume <Download size={20} />
-              </a>
+              </Link>
               <div className="flex items-center gap-4 sm:gap-5">
                 <a href="https://github.com/RaparthiSrikar" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-brand hover:border-brand hover:bg-brand/5 transition-all">
                   <Github size={18} />
@@ -569,6 +577,161 @@ const RecentProjects = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+const ResumePage = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen bg-black text-white pt-24 pb-20 px-6 sm:px-12">
+      <div className="container mx-auto max-w-4xl">
+        <button
+          onClick={() => navigate('/')}
+          className="flex items-center gap-2 text-brand font-bold mb-8 hover:gap-3 transition-all print:hidden"
+        >
+          <ArrowLeft size={20} /> Back to Portfolio
+        </button>
+
+        <div className="bg-white text-black p-8 sm:p-12 rounded-2xl shadow-2xl space-y-10">
+          {/* Header */}
+          <div className="text-center space-y-4 border-b pb-8">
+            <h1 className="text-4xl font-display font-bold uppercase tracking-tight">Srikar Raparthi</h1>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+              <span className="flex items-center gap-2"><MapPin size={14} /> Nalgonda, Telangana</span>
+              <span className="flex items-center gap-2"><Phone size={14} /> +91 73306 68526</span>
+              <span className="flex items-center gap-2"><Mail size={14} /> srikar.raparthi1026@gmail.com</span>
+            </div>
+            <div className="flex justify-center gap-6 text-sm font-bold text-brand">
+              <a href="https://github.com/RaparthiSrikar" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
+              <a href="https://srikar-raparthi-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">Portfolio</a>
+              <a href="https://www.linkedin.com/in/srikarraparthi" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a>
+            </div>
+          </div>
+
+          {/* Summary */}
+          <div className="space-y-3">
+            <h2 className="text-lg font-bold border-b-2 border-brand inline-block pr-4">SUMMARY</h2>
+            <p className="text-gray-700 leading-relaxed">
+              Full Stack Developer skilled in React.js, Node.js, TypeScript & Python. Delivered 6 live production websites for real clients with SEO, REST APIs & AI features. Focused on building high-performance, user-centric digital solutions.
+            </p>
+          </div>
+
+          {/* Technical Skills */}
+          <div className="space-y-4">
+            <h2 className="text-lg font-bold border-b-2 border-brand inline-block pr-4 uppercase">Technical Skills</h2>
+            <div className="space-y-2 text-sm">
+              <p><span className="font-bold">Frontend:</span> HTML5, CSS3, JavaScript (ES6+), React.js, TypeScript, Responsive Design, Tailwind CSS, Framer Motion.</p>
+              <p><span className="font-bold">Backend:</span> Node.js, Express.js, REST APIs, Python, Django.</p>
+              <p><span className="font-bold">Database:</span> SQL, Firebase, SQLite.</p>
+              <p><span className="font-bold">Tools:</span> Git, GitHub, Vercel, Agile, SEO, Digital Marketing, Figma.</p>
+            </div>
+          </div>
+
+          {/* Projects */}
+          <div className="space-y-6">
+            <h2 className="text-lg font-bold border-b-2 border-brand inline-block pr-4">PROJECTS</h2>
+            
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <h3 className="font-bold text-lg">Sri Restaurant (Luxe Table)</h3>
+                <div className="text-xs space-x-2 text-brand">
+                  <a href="https://sri-restaurant.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">Live</a>
+                  <span>|</span>
+                  <a href="https://github.com/RaparthiSrikar/sri_restaurant.git" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
+                </div>
+              </div>
+              <ul className="list-disc list-outside ml-5 text-sm text-gray-700 space-y-2">
+                <li>Built a premium restaurant website with React.js & TypeScript; integrated a dynamic menu system for authentic Indian and Arabian cuisine.</li>
+                <li>Implemented smooth animations using Framer Motion and a high-end UI with Tailwind CSS.</li>
+                <li>Engineered a custom table reservation system and optimized assets for fast load times.</li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <h3 className="font-bold text-lg">Sravanthi High School Website</h3>
+                <div className="text-xs space-x-2 text-brand">
+                  <a href="https://www.sravanthihighschoolnalgonda.org/" target="_blank" rel="noopener noreferrer" className="hover:underline">Live</a>
+                  <span>|</span>
+                  <a href="https://github.com/RaparthiSrikar" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
+                </div>
+              </div>
+              <ul className="list-disc list-outside ml-5 text-sm text-gray-700 space-y-2">
+                <li>Built fully responsive school website with React.js + TypeScript; integrated Node.js backend & REST APIs for dynamic content management.</li>
+                <li>Implemented SEO best practices & AI-based enhancements — improved search rankings, organic traffic, and user engagement.</li>
+                <li>Deployed on Vercel with CI/CD via GitHub for zero-downtime continuous deployments.</li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <h3 className="font-bold text-lg">Heema Services Web App</h3>
+                <div className="text-xs space-x-2 text-brand">
+                  <a href="https://www.heemaservicesnalgonda.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">Live</a>
+                  <span>|</span>
+                  <a href="https://github.com/RaparthiSrikar/Heema-services-nlg.git" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
+                </div>
+              </div>
+              <ul className="list-disc list-outside ml-5 text-sm text-gray-700 space-y-2">
+                <li>Developed high-performance full-stack web app for real client in services domain; scalable architecture with efficient API integrations.</li>
+                <li>Applied SEO strategies & AI-driven features — boosted search visibility, accessibility scores, and user engagement metrics.</li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <h3 className="font-bold text-lg">Railway Ticket Booking System</h3>
+                <div className="text-xs space-x-2 text-brand">
+                  <a href="https://railway-ticket-booking-dhkn.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">Live</a>
+                  <span>|</span>
+                  <a href="https://github.com/RaparthiSrikar/Railway-Ticket-Booking.git" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
+                </div>
+              </div>
+              <ul className="list-disc list-outside ml-5 text-sm text-gray-700 space-y-2">
+                <li>Migrated legacy Python (Tkinter/MySQL) desktop app to modern React (Vite/TypeScript) SPA — 100% feature parity with improved accessibility.</li>
+                <li>Designed glassmorphism UI with Vanilla CSS; engineered browser storage persistence layer for serverless Vercel deployment.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Education */}
+          <div className="space-y-4">
+            <h2 className="text-lg font-bold border-b-2 border-brand inline-block pr-4">EDUCATION</h2>
+            <div className="flex justify-between text-sm">
+              <div>
+                <p className="font-bold">B.Tech – Electronics & Communication Engineering</p>
+                <p className="text-gray-600">Presidency University, Bengaluru</p>
+              </div>
+              <div className="text-right">
+                <p className="font-bold">2019–2023</p>
+                <p className="text-gray-600">CGPA: 6.67</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Certifications */}
+          <div className="space-y-4">
+            <h2 className="text-lg font-bold border-b-2 border-brand inline-block pr-4">CERTIFICATIONS</h2>
+            <ul className="list-disc list-outside ml-5 text-sm text-gray-700">
+              <li>HTML, CSS & JavaScript — NxtWave</li>
+              <li>Python Programming — NxtWave</li>
+              <li>Git & Command Line — NxtWave</li>
+              <li>Introduction to Cloud Computing— IBM</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-8 text-center print:hidden">
+          <button 
+            onClick={() => window.print()}
+            className="bg-brand text-white px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-all flex items-center gap-2 mx-auto"
+          >
+            <Download size={20} /> Download PDF (Print)
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -1203,6 +1366,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/resume" element={<ResumePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/project/:slug" element={<ProjectDetailPage />} />
         </Routes>
